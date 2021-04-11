@@ -1,0 +1,19 @@
+.subtotal{
+	width: 100%;
+}
+.subtotal__title{
+	font-size: 1rem !important;
+}
+.subtotal__subtitle{
+	font-size: 0.8rem !important
+}
+.subtotal__value{
+	font-size: 0.8rem !important
+}
+.subtotal__button{
+	width: 60%;
+	padding: 0!important;
+}
+.subtotal__button > p{
+	font-size: 0.8rem;
+}

@@ -1,24 +1,82 @@
-import logo from './logo.svg';
-import './App.css';
-
+//dependencies
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+//pages
+import Home                           from './pages/Home';
+import Products                       from './pages/Products';
+import Container                      from 'react-bootstrap/Container';
+import Pricing2                       from './pages/Pricing2';
+import Orders                         from './pages/Orders';
+import Success                        from './pages/Success'; 
+import Canceled                       from './pages/Canceled';
+import SignUpPage                     from './pages/SignUpPage';
+//components
+import Header                         from './components/Header';
+//context & hooks
+import { UserContext, StateProvider } from './context/ContextProvider';
+import { useAuth } from './hooks/auth-hook';
+import reducer, { initialState} from './hooks/reducer';
+//styling
+import './App.css'; 
 function App() {
+  const {login, logout, token, userId, firstname, lastname, username}= useAuth();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserContext.Provider value={{
+      userId,
+      firstname,
+      lastname,
+      username,
+      token,
+      login,
+      logout
+    }}>
+      <StateProvider reducer={reducer} initialState={initialState} >
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route path='/home'> 
+              <Container fluid>
+              <Header/>
+              <Home/>
+              </Container>
+            </Route>
+            <Route path='/success'>
+              <Header/>
+              <Success />
+            </Route>
+            <Route path='/canceled'>
+              <Header/>
+              <Canceled />
+            </Route>
+            <Route path='/pricing2'>
+              <Header/>
+              <Pricing2 />
+            </Route>
+            <Route path='/orders/:userId'>
+              <Header/>
+              <Orders/>
+            </Route>
+            <Route path='/signup'>
+              <Header/>
+              <SignUpPage />
+            </Route>
+            <Route path='/products'>
+              <Header/>
+              <Products />
+            </Route>
+            <Route path='/'>
+              <Header/>
+              <h1>home</h1>
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+      </StateProvider>
+    </UserContext.Provider>
   );
 }
 

@@ -1,0 +1,28 @@
+.product__cardImage{
+    max-width:  200px;
+    max-height: 150px;
+}
+.product__description{
+  font-size: 0.8rem
+}
+.product__title{
+  font-size: 1rem !important;
+}
+.product__cardTitle {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	box-sizing: content-box;
+}
+.product__cardImage__container{
+	display: flex;
+    justify-content: center;
+}
+.product__footer{
+   display: flex;
+   justify-content: center;
+}
+.product {
+    max-width: 30%;
+    margin: 20px;
+}

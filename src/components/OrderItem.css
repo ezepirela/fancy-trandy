@@ -1,0 +1,15 @@
+li {
+	list-style: none;
+	margin: 10px;
+}
+.orderitem__image{
+	 max-width:  200px;
+    max-height: 150px;
+}
+.orderitem__card{
+	display: flex;
+	justify-content: space-between;
+}
+.orderitem__cardTitle{
+	font-size: 1.2rem !important
+}

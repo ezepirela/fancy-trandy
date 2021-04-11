@@ -1,0 +1,20 @@
+
+#home__carouselCaptionTitle2{
+	margin: -50px;
+	color: #a35531
+}
+.home__carouselCaptionTitle{
+	margin: -50px
+}
+.d-block{
+	max-height: 600px;
+}
+.home__jumbotronTitle {
+    font-weight: 700
+}
+.home__products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+}

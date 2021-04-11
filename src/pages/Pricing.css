@@ -1,0 +1,26 @@
+.pricing__title{
+   text-align: center;
+   
+}
+.pricing__products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.pricing__productsTitle{
+	text-align: center;
+    display: block;
+   margin-bottom: 10px;
+}
+.pricing {
+    display: flex;
+    flex-direction: row;
+}
+.pricing__productsContainer{
+	display: flex;
+	flex: 0.8;
+}
+.pricing__subtotal{
+    margin: 10px;
+    flex: 0.2
+}
