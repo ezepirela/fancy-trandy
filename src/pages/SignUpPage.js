@@ -5,14 +5,16 @@ import {useHttpClient} from '../hooks/http-request';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import * as yup from 'yup';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import { UserContext } from '../context/ContextProvider';
-import Modal from '../components/shared/Modal';
+import Modal from '../components/shared/Modal'; 
+import GoogleLogin from '../components/GoogleLogin';
 import './SignUpPage.css';
 const SignUpPage = () => {
 	const [loginMode, setLoginMode] = useState(false)
 	let validationSchema;
 	const history = useHistory();
-	const {sendRequest} = useHttpClient();
+	const {sendRequest, isLoading} = useHttpClient();
 	const [errorMessage, setErrorMessage] = useState(null);
 	const auth = useContext(UserContext);
 	const clearError = ()  =>{
@@ -97,8 +99,13 @@ const SignUpPage = () => {
     });
     return (
         <div >
+            <div className='signUpPage__loadingSpinner'>
+                {isLoading && <CircularProgress />}
+            </div>
+            <div className='signUpPage__googleLogin'>
+                <GoogleLogin/>
+            </div>
             <form onSubmit={formik.handleSubmit}>
-                {loginMode && <p>loginpage</p>}
                 <Modal showModal={errorMessage} clearError={clearError} authMessage={errorMessage}/>
                 <TextField 
                 variant='outlined'

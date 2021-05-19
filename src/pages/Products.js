@@ -1,7 +1,7 @@
 import React from 'react';
 import './Products.css';
 import Product from '../components/Product'; 
-
+import { v4 as uuidv4 } from 'uuid';
 const Products =  () => {
     const product = [
         {
@@ -78,7 +78,7 @@ const Products =  () => {
     return (
         <div className='products'>
             {product.map(item => (
-                <Product key={item.id} displayPrice={true} className='products__item'{...item}/>
+                <Product key={uuidv4()} displayPrice={true} className='products__item'{...item}/>
             ))}
         </div>
     )

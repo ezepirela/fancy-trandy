@@ -3,6 +3,17 @@
     flex-direction: column;
     align-items:center
 }
+.signUpPage__loadingSpinner{
+    margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  
+}
+.signUpPage__googleLogin{
+    display: flex;
+    justify-content: center;
+}
 .signup__button {
     margin: 10px;
     display: flex !important;

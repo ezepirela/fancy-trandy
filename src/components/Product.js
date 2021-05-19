@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import CardDeck from 'react-bootstrap/CardDeck';
 import {useStateValue} from '../context/ContextProvider';
 import CurrencyFormat from 'react-currency-format';
+
 const Product = ({priceId, displayPrice, title, price, image, text, disableText, disableButton}) => {
     const [, dispatch] = useStateValue()
     const addButtonHandler = () => {
@@ -35,20 +36,20 @@ const Product = ({priceId, displayPrice, title, price, image, text, disableText,
                             <Card.Title className='product__title' >{title}</Card.Title>
                         </div>
                         {!disableText && <Card.Text className='product__description'>
-                                                    {text}
-                                                </Card.Text>}
+                            {text}
+                        </Card.Text>}
                         {displayPrice && <Card.Text>
-                                                    <CurrencyFormat 
-                                                renderText={(value) => (
-                                                        <p> Price: <strong>{`${value}`}</strong></p>
-                                                )}
-                                                decimalState={2}
-                                                value={price}
-                                                displayType={"text"}
-                                                thousandSeparator={true}
-                                                prefix={"$"}
-                                            />
-                                                </Card.Text>}
+                            <CurrencyFormat 
+                                renderText={(value) => (
+                                    <p> Price: <strong>{`${value}`}</strong></p>
+                                )}
+                                decimalState={2}
+                                value={price}
+                                displayType={"text"}
+                                thousandSeparator={true}
+                                prefix={"$"}
+                            />
+                        </Card.Text>}
                     </Card.Body>
                     <div className='product__cardImage__container'>
                     <Card.Img className='product__cardImage'variant="bottom" src={image} />

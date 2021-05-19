@@ -1,11 +1,9 @@
-//dependencies
 import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-//pages
 import Home                           from './pages/Home';
 import Products                       from './pages/Products';
 import Container                      from 'react-bootstrap/Container';
@@ -14,14 +12,12 @@ import Orders                         from './pages/Orders';
 import Success                        from './pages/Success'; 
 import Canceled                       from './pages/Canceled';
 import SignUpPage                     from './pages/SignUpPage';
-//components
 import Header                         from './components/Header';
-//context & hooks
 import { UserContext, StateProvider } from './context/ContextProvider';
 import { useAuth } from './hooks/auth-hook';
 import reducer, { initialState} from './hooks/reducer';
-//styling
 import './App.css'; 
+
 function App() {
   const {login, logout, token, userId, firstname, lastname, username}= useAuth();
   return (
@@ -69,8 +65,10 @@ function App() {
               <Products />
             </Route>
             <Route path='/'>
+            <Container fluid>
               <Header/>
-              <h1>home</h1>
+              <Home/>
+              </Container>
             </Route>
           </Switch>
         </div>

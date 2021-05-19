@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './SubTotal.css';
 import {getBasketTotalPrice} from '../hooks/reducer';
-import {useStateValue} from '../context/ContextProvider';
+import {useStateValue, UserContext} from '../context/ContextProvider';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import CurrencyFormat from 'react-currency-format';
 const SubTotal = ({payment}) => {
     const [{basket}] = useStateValue();
+    const authUser = useContext(UserContext);
     return (
         <div className='subtotal'>
             <Card>
@@ -25,7 +26,9 @@ const SubTotal = ({payment}) => {
                         prefix={"$"}
 			        />
                     </Card.Text>
-                    <Card.Link><Button className='subtotal__button' onClick={payment}><p>Pay</p></Button></Card.Link>
+                    <Card.Link>{authUser.token === false || authUser.token === null ? 
+                    (<Button className='subtotal__button' disabled onClick={payment}><p>Pay</p></Button>) :
+                    (<Button className='subtotal__button'  onClick={payment}><p>Pay</p></Button>) }</Card.Link>
                 </Card.Body>
             </Card>
 

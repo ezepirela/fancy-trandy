@@ -81,7 +81,7 @@ const Home = () => {
             </Carousel>
             <div className='home__products'>
                 {product.map(item => (
-                    <Product key={item.id} {...item} />
+                    <Product key={item.priceId} {...item} />
                 ))}
             </div> 
         </div>
