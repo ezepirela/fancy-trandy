@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Staatliches', cursive !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+ background: #FFEEDB !important;
+  /*background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);*/
+
 }

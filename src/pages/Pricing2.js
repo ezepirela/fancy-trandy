@@ -8,6 +8,7 @@ import SubTotal from '../components/SubTotal';
 import { v4 as uuidv4 } from 'uuid';
 import Modal from '../components/shared/Modal';
 import { loadStripe } from '@stripe/stripe-js';
+import '../sass/pricing.scss'
 const stripePromise = loadStripe('pk_test_51IQkB1Fsyfu7OQPBzMqFTLhg5WFNws1E1aM9MRxhdC2V1OpjysYbfbxi54JDKVmIYSx7GRviosUw9ckkQ7jKJOdE00YdYKTob7'
 );
 const Pricing2 = () => {
@@ -21,15 +22,13 @@ const Pricing2 = () => {
         }
     }})
     const createOrder = async () => {
-        let orderResponse;
         try{
-        orderResponse = await sendRequest(`${process.env.REACT_APP_BACKEND_URL}payments/orders`, 'POST',
+         await sendRequest(`${process.env.REACT_APP_BACKEND_URL}payments/orders`, 'POST',
             JSON.stringify({amount: getBasketTotalPrice(basket), basket: basket, user: authUser.userId}),
              {'Content-Type': 'application/json', "Authorization": 'Bearer ' + authUser.token})  
         }catch(e){
             console.log(e)
         }
-        console.log(orderResponse);
         dispatch({type: 'CLEAN_BASKET'})
     }
     const handleClick = async (e) => {
@@ -41,7 +40,6 @@ const Pricing2 = () => {
         }catch(e){
             
         }
-        console.log(response) 
         try {
             createOrder();
             await stripe.redirectToCheckout({sessionId: response.sessionId})
@@ -52,22 +50,21 @@ const Pricing2 = () => {
     const defaultMessage = <h1 className='pricing__defaultMessage'>Sorry, you not have products selected.</h1>
     return (
         <div className='pricing'>
+                    <h4 className='stripe-textPricing'></h4>
             <Modal showModal={error} authMessage={error} clearError={clearError}/>
-            <section className='pricing__productsContainer'>
-                {basket?.length === 0 ? defaultMessage : (
+                {basket?.length === 0 ? defaultMessage : (  
                     <div className='pricing__resume'>
-                        <h2 className='pricing__productsTitle'>{authUser.token === false || authUser.token === null ? 'SignUp to continue before payment ' : `welcome ${authUser.firstname} ${authUser.lastname}` }</h2>
-                        <div className='pricing__products'>
-                        {basket?.map(product => (
-                            <Product key={uuidv4()} {...product} displayPrice={true} disableText={true} disableButton={true}/>
-                         ))}
-                         </div>
+                    <SubTotal className='pricing__subtotal' payment={handleClick}/>
+                            <ul className='pricing__listProducts'>
+                                <li className='pricing__products'>
+                                    {basket?.map(product => (
+                                        <Product key={uuidv4()} {...product} 
+                                            displayPrice={true} disableText={true} disableButton={true}/>
+                                     ))}
+                                </li>
+                            </ul>
                     </div>  
                 )}   
-                </section>  
-                <aside className='pricing__subtotal'>
-                    <SubTotal payment={handleClick}/>
-                </aside>  
         </div>
         
     )

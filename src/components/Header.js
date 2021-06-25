@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import {Link} from 'react-router-dom';
+import {Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Header.css';
 import logo from './LOGO.jpg';
@@ -20,16 +20,16 @@ const Header = () => {
             <Navbar.Brand href="#home"><img className='header__image' alt='' src={logo}/></Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="header__navlink">
-                    <Nav.Link><Link className='header__navlinks' to='/home'><span >Home</span></Link></Nav.Link>
-                    <Nav.Link><Link className='header__navlinks' to='/products'><span >Products</span></Link></Nav.Link>
-                    {user.token? (<Nav.Link><Link className='header__navlinks' to='/home'><span onClick={handleLogout}>Logout</span></Link></Nav.Link>)
+                <Nav className="header__navlink" >
+                    <Nav.Link><Link className='header__navlinks' to='/home'><Button style={{color: '#0A1D37', borderColor: '#FFBD9B'}} variant="outline-light" >Home</Button></Link></Nav.Link>
+                    <Nav.Link><Link className='header__navlinks' to='/products'><Button style={{color: '#0A1D37', borderColor: '#FFBD9B'}} variant="outline-light" >Products</Button></Link></Nav.Link>
+                    {user.token? (<Nav.Link><Link className='header__navlinks' to='/home'><Button style={{color: '#0A1D37', borderColor: '#FFBD9B'}} variant="outline-light" onClick={handleLogout}>Logout</Button></Link></Nav.Link>)
                      : 
-                    (<Nav.Link><Link className='header__navlinks' to='/signup'><span >SignUp</span></Link></Nav.Link>)}
+                    (<Nav.Link><Link className='header__navlinks' to='/signup'><Button style={{color: '#0A1D37', borderColor: '#FFBD9B'}} variant="outline-light" >SignUp</Button></Link></Nav.Link>)}
                     
-                    {user.token && <Nav.Link><Link className='header__navlinks' to={`/orders/${user.userId}`}><span >Orders</span></Link></Nav.Link>}
+                    {user.token && <Nav.Link><Link className='header__navlinks' to={`/orders/${user.userId}`}><Button style={{color: '#0A1D37', borderColor: '#FFBD9B'}} variant="outline-light" >Orders</Button></Link></Nav.Link>}
                     <Link to='/pricing2'> 
-                    <Button variant="light">
+                    <Button className='header__badge' variant="light">
                         < ShoppingBasketIcon /><Badge variant="light">{basket?.length}</Badge>
                     </Button>
                     </Link>

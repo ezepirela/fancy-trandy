@@ -61,7 +61,7 @@ passport.use(new googleStrategy({
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.ai1xb.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`, {
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.ai1xb.mongodb.net/${process.env.DB_NAME_PRE}?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -94,8 +94,7 @@ app.use((error, req, res, next) => {
         return next(error);
     };
     res.json({error: error.message, code: error.code})
-})
-const host = '127.0.0.1'
+});
 server.listen(process.env.PORT ||4000,  () => {
   console.log('server running');
 })

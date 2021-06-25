@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import CardDeck from 'react-bootstrap/CardDeck';
 import {useStateValue} from '../context/ContextProvider';
-import CurrencyFormat from 'react-currency-format';
+
 
 const Product = ({priceId, displayPrice, title, price, image, text, disableText, disableButton}) => {
     const [, dispatch] = useStateValue()
@@ -28,38 +28,23 @@ const Product = ({priceId, displayPrice, title, price, image, text, disableText,
         })
     }
     return (
-        <div className='product'>
-           <CardDeck className='product__cardDeck'>
-                <Card >
-                    <Card.Body className='product__cardContainer'>
-                        <div className='product__cardTitle'>
-                            <Card.Title className='product__title' >{title}</Card.Title>
-                        </div>
-                        {!disableText && <Card.Text className='product__description'>
-                            {text}
-                        </Card.Text>}
-                        {displayPrice && <Card.Text>
-                            <CurrencyFormat 
-                                renderText={(value) => (
-                                    <p> Price: <strong>{`${value}`}</strong></p>
-                                )}
-                                decimalState={2}
-                                value={price}
-                                displayType={"text"}
-                                thousandSeparator={true}
-                                prefix={"$"}
-                            />
-                        </Card.Text>}
-                    </Card.Body>
-                    <div className='product__cardImage__container'>
-                    <Card.Img className='product__cardImage'variant="bottom" src={image} />
-                    </div>
-                    <Card.Footer className='product__footer'>
-                    {!disableButton && <Button onClick={addButtonHandler}variant="outline-danger">Lo Quiero!</Button>}
-                    {disableButton && <Button onClick={removeButtonHandler}variant="outline-danger">Retirar</Button>}
-                    </Card.Footer>
-                </Card>
-            </CardDeck> 
+        <div className='product'> 
+            {/*<img className='product__image' src={image}/>
+            <div className='product__body'>
+                <h5 className='product__title'>{title}</h5>
+                <p className='product__price'> Price: <strong>{`${price.toLocaleString('es-AR', {style: 'currency',currency: 'ARS', minimumFractionDigits: 0})}`}</strong></p>
+                {!disableButton && <Button variant='outline-danger' className='product__button' onClick={addButtonHandler}>Lo Quiero!</Button>}
+                {disableButton && <Button variant='outline-danger' className='product__button' onClick={removeButtonHandler}>Retirar</Button>}
+            </div>*/}
+            <Card style={{ width: '18rem', alignItems: 'center', color: '#0A1D37', boxShadow: '0.5px 0.5px 0.5px 1px #FFBD9B' }}>
+              <Card.Img className='product__image' variant="top" src={image} />
+              <Card.Body>
+                <Card.Title>{title}</Card.Title>
+                <Card.Title><p className='product__price'> Price: <strong>{`${price.toLocaleString('es-AR', {style: 'currency',currency: 'ARS', minimumFractionDigits: 0})}`}</strong></p></Card.Title>
+                {!disableButton && <Button variant='outline-danger' className='product__button' onClick={addButtonHandler}>Lo Quiero!</Button>}
+                {disableButton && <Button variant='outline-danger' className='product__button' onClick={removeButtonHandler}>Retirar</Button>}
+              </Card.Body>
+            </Card>
         </div>
     )
 }

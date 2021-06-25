@@ -16,24 +16,6 @@ const controller = {
         const orders = registeredUser.orders.map(order =>({...order.toObject({getters: true}), date: order._id.getTimestamp()}));
         res.json({orders: orders});
 	},
-    getData : async (req, res, next) => {
-	    const total = req.query.total;
-		console.log(total);
-		if(total === "0" ){
-			res.status(201).send({ 
-				clientSecret: true
-			})
-		}else {
-			console.log(`payment received for the amount ${total}`);
-			const paymentIntent = await stripe.paymentIntents.create({
-				amount: total,
-				currency: 'usd'
-			}); 
-			res.status(201).send({ 
-				clientSecret: paymentIntent.client_secret
-			})
-		}
-    },
 	createOrder: async (req, res, next) => {
 		const {amount, basket, user} = req.body;
 		let order

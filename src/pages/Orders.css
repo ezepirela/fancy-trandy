@@ -2,4 +2,26 @@
 	display: flex;
 	flex-direction: column;
 	text-align: center;
+    color: #0A1D37
+}
+.orders__loadingSpinner{
+    margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  
+}
+.orders__Home{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 80px;
+}
+.orders__titleContainer{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 50px;
 }

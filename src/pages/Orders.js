@@ -2,8 +2,10 @@ import React, {useEffect, useContext, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import {useHttpClient} from '../hooks/http-request';
 import {UserContext} from '../context/ContextProvider';
-import OrderList from '../components/OrderList'
-import './Orders.css';
+import OrderList from '../components/OrderList';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import '../sass/title.scss'  
+import './Orders.css';  
 
 const Orders = () => {
 	const { isLoading, sendRequest} = useHttpClient()
@@ -27,8 +29,14 @@ const Orders = () => {
 
 	return (
 		<div className='orders'>
-			<h1 className='order__title'>Your Previous orders</h1>
+			<div className='orders__loadingSpinner'>
+                {isLoading && <CircularProgress />}
+            </div>
+            <div className='orders__titleContainer'>
+				{!isLoading && OrdersDB && <h4 className='stripe-text'></h4>}
+			</div>
 			{!isLoading && OrdersDB && <OrderList loadedOrders={OrdersDB}/>}
+			
 		</div>
 	);
 };

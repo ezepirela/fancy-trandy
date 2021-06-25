@@ -2,17 +2,18 @@ import React from 'react';
 import './Products.css';
 import Product from '../components/Product'; 
 import { v4 as uuidv4 } from 'uuid';
+import '../sass/products.scss'
 const Products =  () => {
     const product = [
         {
-            title: 'Set de Labiales Huda Beauty',
+            title: 'Set de Labiales',
             priceId: 'price_1IcYTkFsyfu7OQPBhBJaritZ',
             price: 22,
             image: 'https://janireviguri.com/wp-content/uploads/2019/03/labialesHuda.png',
             text: "hermoso set de labiales de Huda Beauty colores pastel"
         },
         {
-            title: 'Sombra de Ojos. Paleta de Maquillaje',
+            title: 'Sombra de Ojos',
             price: 30,
             priceId: 'price_1Icdj1Fsyfu7OQPBPmiBxaL5',
             text: 'Perfecto conjunto de sombra para cada ocasion',
@@ -29,25 +30,25 @@ const Products =  () => {
             title: 'Kit Labiales Nude',
             price: 30,
             priceId: 'price_1IcdnlFsyfu7OQPBHKkYTmC2',
-            image: 'https://sakuraimakeup.com/1395-large_default/kit-12-labiales-nude-huda-beauty.jpg',
-            text: 'Set completo de labiales con colores seductores de la linea Nude'
+            image: 'https://http2.mlstatic.com/D_NQ_NP_879670-MLV41815246161_052020-W.jpg',
+            text: 'Set completo de labiales con colores seductores linea Nude'
         },
         {
-            title: 'Corrector Huda Beauty',
+            title: 'Corrector',
             price: 4,
             priceId: 'price_1IcdomFsyfu7OQPBDZz7qhaR',
             image: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ma-scara-huda-beauty-1590049277.jpg',
             text: 'Gran corrector para el mejor delineado'
         },
         {
-            title: 'Set de Labiales Huda Beauty',
+            title: 'Set de Labiales',
             priceId: 'price_1IcYTkFsyfu7OQPBhBJaritZ',
             price: 22,
             image: 'https://janireviguri.com/wp-content/uploads/2019/03/labialesHuda.png',
             text: "hermoso set de labiales de Huda Beauty colores pastel"
         },
         {
-            title: 'Sombra de Ojos. Paleta de Maquillaje',
+            title: 'Sombra de Ojos',
             price: 30,
             priceId: 'price_1Icdj1Fsyfu7OQPBPmiBxaL5',
             text: 'Perfecto conjunto de sombra para cada ocasion',
@@ -64,11 +65,11 @@ const Products =  () => {
             title: 'Kit Labiales Nude',
             price: 30,
             priceId: 'price_1IcdnlFsyfu7OQPBHKkYTmC2',
-            image: 'https://sakuraimakeup.com/1395-large_default/kit-12-labiales-nude-huda-beauty.jpg',
-            text: 'Set completo de labiales con colores seductores de la linea Nude'
+            image: 'https://http2.mlstatic.com/D_NQ_NP_879670-MLV41815246161_052020-W.jpg',
+            text: 'Set completo de labiales con colores seductores linea Nude'
         },
         {
-            title: 'Corrector Huda Beauty',
+            title: 'Corrector',
             price: 4,
             priceId: 'price_1IcdomFsyfu7OQPBDZz7qhaR',
             image: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ma-scara-huda-beauty-1590049277.jpg',
@@ -77,6 +78,9 @@ const Products =  () => {
     ]
     return (
         <div className='products'>
+        <div className='orders__titleContainer'>
+            <h4 className='stripe-textProducts'></h4>
+        </div>
             {product.map(item => (
                 <Product key={uuidv4()} displayPrice={true} className='products__item'{...item}/>
             ))}

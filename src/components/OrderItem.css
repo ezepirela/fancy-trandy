@@ -5,11 +5,18 @@ li {
 .orderitem__image{
 	 max-width:  200px;
     max-height: 150px;
+    margin: 5px 0 0 10px;
+}
+
+.orderitem__info{
+	font-size: 1.6vw;
 }
 .orderitem__card{
 	display: flex;
-	justify-content: space-between;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
-.orderitem__cardTitle{
-	font-size: 1.2rem !important
+#orderitem__cardTitle{
+	font-size: 1.8vw;
+	min-height: 47px;
 }

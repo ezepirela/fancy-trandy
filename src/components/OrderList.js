@@ -7,7 +7,7 @@ function OrderList({loadedOrders}) {
 	}
 	return (
 		<ul className='orderlist__list'>
-			{loadedOrders.map(order => <OrderItem key={order.id} {...order}/>)}
+				{loadedOrders.map(order => <OrderItem key={order.id} {...order}/>)}
 		</ul>
 	);
 };

@@ -2,7 +2,7 @@ export const initialState = {
     basket: []
 }
 export const getBasketTotalPrice = (basket) => {
-	return basket?.reduce((amount, item) => item.price + amount, 0);
+	return basket?.reduce((amount, item) => item.price + amount, 0).toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0});
 }
 const reducer = (state, action) => {
     

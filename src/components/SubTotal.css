@@ -1,18 +1,26 @@
 .subtotal{
 	width: 100%;
+	display: flex;
+	justify-content: center;
 }
 .subtotal__title{
 	font-size: 1rem !important;
+	display: inline !important;
 }
 .subtotal__subtitle{
-	font-size: 0.8rem !important
+	font-size: 0.8rem !important;
+	display:  inline !important;
 }
 .subtotal__value{
 	font-size: 0.8rem !important
 }
 .subtotal__button{
-	width: 60%;
+	width: 40%;
 	padding: 0!important;
+}
+.subtotal__cardButton{
+	display: flex;
+	justify-content: center;
 }
 .subtotal__button > p{
 	font-size: 0.8rem;

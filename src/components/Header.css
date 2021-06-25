@@ -1,22 +1,24 @@
 .header__navbar{
     margin-bottom: -5px;
-}
 
+}
+.header__badge{
+    background: inherit;
+    margin-top: 9px;
+}
 .header__navlink {
    width: 100%;
    display: flex;
    justify-content: space-around;
 }
+
 .header__navlinks {
-    color: rgba(0,0,0,0.8);
+    color: #0A1D37;
     font-weight: bolder;
-    font-size: medium;
+    font-size: 1.5rem;
     text-decoration: none !important;
 }
-.header__navlinks :hover {
-    text-decoration: none !important;
-    color: lightpink;
-}
+
 .header__image{
     margin: 0;
     width: 120px;

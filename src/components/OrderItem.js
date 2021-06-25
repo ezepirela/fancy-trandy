@@ -1,33 +1,24 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import CurrencyFormat from 'react-currency-format';
+import { getBasketTotalPrice } from '../hooks/reducer'
 import './OrderItem.css';
 
 function OrderItem(props) {
 	return (
 		<div className='orderitem__card'>
-		{props.basket.map(basket =>
+		{props.basket.map(basket => 
 			<li key={basket.id}>
-			 	<Card style={{ width: '15rem' }}>
-				 	<Card.Img variant="top" src={basket.image} className='orderitem__image' />
-					<Card.Body>
-						<Card.Title className='orderitem__cardTitle'>{basket.title}</Card.Title>
+			 	<Card className='orderitem__cardList' style={{ maxWidth: '217px', alignItems: 'center', color: '#0A1D37', boxShadow: '0.5px 0.5px 0.5px 1px #FFBD9B'}}>
+				 	<Card.Img variant="center" src={basket.image} className='orderitem__image' />
+					<Card.Body style={{padding: '0'}} >
+						<Card.Title style={{margin: '0', paddingTop: '10px'}} id='orderitem__cardTitle'>{basket.title}</Card.Title>
 					</Card.Body>
-					<ListGroup className="list-group-flush">
-					    <ListGroup.Item>
-					    	<CurrencyFormat 
-						        renderText={(value) => (
-		                                <p> Product Price: <strong>{`${value}`}</strong></p>
-						        )}
-		                        decimalState={2}
-		                        value={basket.price}
-		                        displayType={"text"}
-		                        thousandSeparator={true}
-		                        prefix={"$"}
-			        		/>
+					<ListGroup  className="list-group-flush orderitem__info">
+					    <ListGroup.Item style={{padding: '0'}} >
+                            <p> Price: <strong>{`${basket.price.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0})}`}</strong></p>  
 					    </ListGroup.Item>
-					    <ListGroup.Item>{`Purchased: ${props.date.slice(0,10)} at ${props.date.slice(11,19)}`}</ListGroup.Item>
+					    <ListGroup.Item style={{padding: '0'}} >{`Purchased: ${props.date.slice(0,10)}`}</ListGroup.Item>
 					</ListGroup>
 				</Card>
 			</li>)}

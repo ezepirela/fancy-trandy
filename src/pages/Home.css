@@ -6,6 +6,14 @@
 .home__carouselCaptionTitle{
 	margin: -50px
 }
+.home__carouselItem {
+	height: 400px;
+}
+.home__carousel_img{
+	object-fit: fill;
+	width: 100%;
+	height: 400px;
+}
 .d-block{
 	max-height: 600px;
 }

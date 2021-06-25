@@ -1,16 +1,29 @@
-.pricing__title{
-   text-align: center;
-   
-}
+
 .pricing__products{
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     flex-wrap: wrap;
-    justify-content: space-around;
+}
+
+.pricing__defaultMessage{
+    font-size: 2vw;
+    margin-top: 100px;
 }
 .pricing__productsTitle{
 	text-align: center;
     display: block;
-   margin-bottom: 10px;
+    margin-bottom: 10px;
+}
+.pricing__title{
+    display: block;
+    text-align: left;
+    color: white;
+    width: 100%;
+}
+.pricing__resume{
+    width: 100%;
+    margin-top: 80px;
 }
 .pricing {
     display: flex;
@@ -18,9 +31,10 @@
 }
 .pricing__productsContainer{
 	display: flex;
-	flex: 0.8;
+    width: 100%;
+	
 }
 .pricing__subtotal{
-    margin: 10px;
-    flex: 0.2
+    display: flex;
+    justify-self: center;
 }
