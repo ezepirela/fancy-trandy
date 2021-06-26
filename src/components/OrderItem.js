@@ -1,7 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { getBasketTotalPrice } from '../hooks/reducer'
 import './OrderItem.css';
 
 function OrderItem(props) {

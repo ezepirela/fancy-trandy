@@ -33,7 +33,7 @@ const Orders = () => {
                 {isLoading && <CircularProgress />}
             </div>
             <div className='orders__titleContainer'>
-				{!isLoading && OrdersDB && <h4 className='stripe-text'></h4>}
+				{!isLoading && OrdersDB && <p className='stripe-text'></p>}
 			</div>
 			{!isLoading && OrdersDB && <OrderList loadedOrders={OrdersDB}/>}
 			

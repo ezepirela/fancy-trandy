@@ -50,7 +50,7 @@ const Pricing2 = () => {
     const defaultMessage = <h1 className='pricing__defaultMessage'>Sorry, you not have products selected.</h1>
     return (
         <div className='pricing'>
-                    <h4 className='stripe-textPricing'></h4>
+                    <p className='stripe-textPricing'></p>
             <Modal showModal={error} authMessage={error} clearError={clearError}/>
                 {basket?.length === 0 ? defaultMessage : (  
                     <div className='pricing__resume'>

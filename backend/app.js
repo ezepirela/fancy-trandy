@@ -9,6 +9,7 @@ const   express                 =   require('express'),
         HttpError               =   require('./Models/HttpErrors'),
         mongoose                =   require('mongoose'),
         passport			          =   require("passport"),
+        productRoutes           =   require('./Routes/products'),
         User                    =   require('./Models/userModel'),
         expressSession		      =   require("express-session"),
         LocalStrategy		        =   require("passport-local").Strategy,
@@ -70,6 +71,7 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD
 app.use(express.static(path.join('public')));
 app.use('/', paymentsRoutes);
 app.use('/login', loginRoutes);
+app.use('/products', productRoutes);
 app.get('/login/auth/google/redirect', passport.authenticate('google', {scope: ['profile', 'email']}), (req, res) => {
     let token;
     try{

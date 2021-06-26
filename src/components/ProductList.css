@@ -1,0 +1,16 @@
+.productList{
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+
+@media (max-width:  760px){
+    .productsList{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+    }
+}

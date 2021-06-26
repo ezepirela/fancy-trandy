@@ -2,7 +2,6 @@ import React from 'react';
 import './Product.css';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import CardDeck from 'react-bootstrap/CardDeck';
 import {useStateValue} from '../context/ContextProvider';
 
 
