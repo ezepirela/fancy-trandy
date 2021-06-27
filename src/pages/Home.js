@@ -17,7 +17,7 @@ const Home = () => {
         let response;
         const fetchProducts = async () => {
             try{
-                response = await sendRequest(`${process.env.REACT_APP_BACKEND_URL}products`);
+                response = await sendRequest('https://fancytrandy.herokuapp.com/products');
                 setProducts(response.products);
             }catch(e){
                 console.log(e);
