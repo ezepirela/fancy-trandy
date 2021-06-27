@@ -26,6 +26,7 @@ const Home = () => {
         fetchProducts();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [sendRequest])
+    console.log(process.env.REACT_APP_BACKEND_URL);
     return (
         <React.Fragment>
         {!isLoading && error && <Modal showModal={error} clearError={clearError} message='Un error ha ocurrido. Carge la página nuevamente'/>}
