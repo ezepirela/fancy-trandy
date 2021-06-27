@@ -27,12 +27,10 @@ const controller = {
         let user;
         let token
         try {
-            user = await User.register(newUser, password)
-            console.log('registered')
+            user = await User.register(newUser, password);
         } catch (e) {
            return next(new HttpError(`${e.message}`, 500))
         }
-          //mongoose sign up
         passport.authenticate("local")(req, res, function(){
             try{
                 token = jwt.sign(

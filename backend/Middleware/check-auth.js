@@ -8,7 +8,7 @@ module.exports = (req, res, next) => {
         // authorization must be small caps in the req.headers
         const token = req.headers.authorization.split(' ')[1];  
         if(!token){
-            throw new Error('Authoritzation failed123', 500);
+            throw new Error('Authoritzation failed', 500);
         }
         const decodedToken = jwt.verify(token, 'secret');
         req.userData = {userId: decodedToken.userId};

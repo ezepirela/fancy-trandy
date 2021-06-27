@@ -1,42 +1,37 @@
 import React from 'react';
 import './Product.css';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import {useStateValue} from '../context/ContextProvider';
 
 
-const Product = ({priceId, displayPrice, title, price, image, text, disableText, disableButton}) => {
+const Product = ({_id, title, price, description, image, disableButton, displayPrice, priceId}) => {
     const [, dispatch] = useStateValue()
     const addButtonHandler = () => {
         dispatch(
             {
                 type: 'ADD_TO_BASKET',
                 item: {
-                    priceId, 
+                    _id, 
                     title, 
                     price, 
-                    text, 
-                    image
+                    description, 
+                    image,
+                    priceId
                 }
             });
     };
     const removeButtonHandler = () => {
         dispatch({
             type: 'REMOVE_ITEM',
-            priceId
+            _id
         })
     }
     return (
         <div className='product'> 
-            {/*<img className='product__image' src={image}/>
-            <div className='product__body'>
-                <h5 className='product__title'>{title}</h5>
-                <p className='product__price'> Price: <strong>{`${price.toLocaleString('es-AR', {style: 'currency',currency: 'ARS', minimumFractionDigits: 0})}`}</strong></p>
-                {!disableButton && <Button variant='outline-danger' className='product__button' onClick={addButtonHandler}>Lo Quiero!</Button>}
-                {disableButton && <Button variant='outline-danger' className='product__button' onClick={removeButtonHandler}>Retirar</Button>}
-            </div>*/}
             <Card style={{ width: '18rem', alignItems: 'center', color: '#0A1D37', boxShadow: '0.5px 0.5px 0.5px 1px #FFBD9B' }}>
-              <Card.Img className='product__image' variant="top" src={image} />
+              <Link to={`/products/${_id}`}><Card.Img className='product__image' variant="top" src={image} /></Link>
               <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Title><p className='product__price'> Price: <strong>{`${price.toLocaleString('es-AR', {style: 'currency',currency: 'ARS', minimumFractionDigits: 0})}`}</strong></p></Card.Title>

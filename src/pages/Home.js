@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import Product from '../components/Product';
 import Carousel from 'react-bootstrap/Carousel';
 import '../sass/Home.scss';
 import './Home.css';  
 import { useHttpClient } from '../hooks/http-request';
+import Modal from '../components/shared/Modal';
 import ProductList from '../components/ProductList';
 const Home = () => {
     const { isLoading, sendRequest, error, clearError } = useHttpClient();
@@ -23,10 +23,11 @@ const Home = () => {
             setProducts(response.products);
         };
         fetchProducts();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    console.log(products);
-
     return (
+        <React.Fragment>
+        {!isLoading && error && <Modal showModal={error} clearError={clearError} message='Un error ha ocurrido. Carge la página nuevamente'/>}
        <div className='home'>
             <div className='orders__Home'>
                 <p className='stripe-textHome'></p>
@@ -66,6 +67,7 @@ const Home = () => {
                 {!isLoading && products &&  <ProductList products={products}/> }
             </div> 
         </div>
+        </React.Fragment>
     )
 }
 export default Home;

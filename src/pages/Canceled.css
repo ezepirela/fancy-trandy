@@ -1,0 +1,9 @@
+.canceled{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.canceled__title{
+	color:  #0A1D37;
+	font-size:  3vw;
+}

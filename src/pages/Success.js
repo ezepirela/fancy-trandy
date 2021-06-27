@@ -1,12 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import './Success.css';
 function Success() {
 	return (
 		<div className='success'>
-			<div className="sr-payment-summary completed-view">
-          		<h1>Your payment succeeded</h1>
-           		<Link to="/">Restart demo</Link>
-        	</div>
+      		<h1 className='success__title'>Tu pago fue completado.</h1>
+      		<img src='https://res.cloudinary.com/ezepirela/image/upload/v1624829168/fancytrandy/Sucess_nroe1r.png' />
 		</div>
 	)
 }

@@ -1,0 +1,21 @@
+.individualProduct{
+	display: flex;
+}
+.product__legend{
+	margin-top: 10px;
+	color: #0A1D37;
+	display: block;
+}
+.individualProduct__sectionImage{
+	flex: 0.6;
+}
+.individualProduct__info{
+	padding: 20px;
+	flex:  0.4;
+	color: #0A1D37;
+	border: 2px solid white;
+}
+.individualProduct__image{
+	max-height: 500px;
+	width:  100%;
+}

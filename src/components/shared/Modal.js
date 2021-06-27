@@ -11,7 +11,7 @@ function MyVerticallyCenteredModal(props) {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            An error just happened
+           error:
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -26,28 +26,28 @@ function MyVerticallyCenteredModal(props) {
     );
   }
   
-  function ModalComponent({showModal, authMessage, clearError}) {
+  function ModalComponent({showModal, message, clearError}) {
     const [modalShow, setModalShow] = React.useState(false);
     const handleShow = (showModal) => {
         if(showModal){
             return setModalShow(true);
         }
     }
-    const handleShowAuth = (authMessage) => {
-        if(authMessage){
+    const handleShowAuth = (message) => {
+        if(message){
             return setModalShow(true);
         }
     }
     useEffect( () => {
         handleShow(showModal);
-        handleShowAuth(authMessage);
-    }, [showModal, authMessage]);
+        handleShowAuth(message);
+    }, [showModal, message]);
   
     return (
       <>
         <MyVerticallyCenteredModal
           show={modalShow}
-          authMessage={authMessage}
+          authMessage={message}
           text={showModal}
           onHide={() => {
             clearError()

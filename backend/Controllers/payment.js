@@ -1,6 +1,7 @@
-const stripe = require('stripe')('sk_test_51IQkB1Fsyfu7OQPB72ZyeUnL9qvY8H2z7AxR1WZopMBsbSJC7y6TNmLO9KQtEsUlnyHmIFwibVtPPTHO5rf8TzUS00raKG00oU');
-const Order = require('../Models/Orders');
-const User	=	require('../Models/userModel');
+const 	stripe 		= 	require('stripe')('sk_test_51IQkB1Fsyfu7OQPB72ZyeUnL9qvY8H2z7AxR1WZopMBsbSJC7y6TNmLO9KQtEsUlnyHmIFwibVtPPTHO5rf8TzUS00raKG00oU'),
+		Order 		= 	require('../Models/Orders'),
+		User		= 	require('../Models/userModel'),
+		HttpError	=	require('../Models/HttpErrors');
 const controller = {
 	getOrders: async (req, res, next) => {
 		const {userId} = req.params
@@ -8,13 +9,13 @@ const controller = {
 		try{
 			registeredUser = await User.findById(userId).populate('orders');
 		}catch(e){
-			console.log(e)
+			return next(new HttpError('orders not found', 404))
 		}
 		if(!registeredUser || registeredUser.orders.length < 0){
-            return console.log('that user doesnt have orders ');
+            return next(new HttpError('user not found', 404))
         }
         const orders = registeredUser.orders.map(order =>({...order.toObject({getters: true}), date: order._id.getTimestamp()}));
-        res.json({orders: orders});
+        res.status(200).json({orders: orders});
 	},
 	createOrder: async (req, res, next) => {
 		const {amount, basket, user} = req.body;
@@ -26,20 +27,20 @@ const controller = {
 			user
 			});
 		}catch(e){
-			console.log('cant create order', + e)
+			return next(new HttpError('cant create order', 400 ))
 		}
 		let registeredUser;
 		try{
 			registeredUser = await User.findById(user)
 		}catch(e){
-			console.log(e);
+			return next(new HttpError('user not found', 404))
 		}
 		try{
-			registeredUser.orders.push(order);
+			await registeredUser.orders.push(order);
 			await order.save()
 			await registeredUser.save()
 		}catch(e){
-			console.log('cant save the models'+ e)
+			return next(new HttpError('order was not save', 500))
 		}
 		res.status(201).json({message: 'order created'})
 	}, 
@@ -48,10 +49,10 @@ const controller = {
 			payment_method_types: ['card'],
 			mode: 'payment',
 			line_items: req.body.arrayProp,
-			success_url: `${process.env.DB_FRONT_URL}/success`,
-    		cancel_url: `${process.env.DB_FRONT_URL}/canceled`,
+			success_url: `${process.env.DB_FRONT_PRE}/success`,
+    		cancel_url: `${process.env.DB_FRONT_PRE}/canceled`,
 		});
-		res.json({sessionId: session.id});
+		res.status(201).json({sessionId: session.id});
 	}
 }
 module.exports = controller;

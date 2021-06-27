@@ -106,7 +106,7 @@ const SignUpPage = () => {
                 <GoogleLogin/>
             </div>
             <form onSubmit={formik.handleSubmit}>
-                <Modal showModal={errorMessage} clearError={clearError} authMessage={errorMessage}/>
+                <Modal showModal={errorMessage} clearError={clearError} message={errorMessage}/>
                 <TextField 
                 variant='outlined'
                 margin='normal'

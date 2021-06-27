@@ -5,7 +5,7 @@ const userSchema = new Schema({
     username: {required: true, type: String},
     firstName: {required: true, type: String},
     lastName: {required: true, type: String},
-    password: {required: true, type: String},
+    password: String,
     googleID: String,
     orders: [{
         type: mongoose.Types.ObjectId,

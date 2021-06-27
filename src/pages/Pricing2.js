@@ -47,11 +47,14 @@ const Pricing2 = () => {
            
         }
     }
-    const defaultMessage = <h1 className='pricing__defaultMessage'>Sorry, you not have products selected.</h1>
+    const defaultMessage = (<div className='pricing__defaultMessage'>
+          <h1 className='canceled__title'>No tienes productos seleccionados.</h1>
+          <img alt='canceled' className='canceled__image' src='https://res.cloudinary.com/ezepirela/image/upload/v1624829178/fancytrandy/Denied_npvicr.png' />
+        </div>)
     return (
         <div className='pricing'>
                     <p className='stripe-textPricing'></p>
-            <Modal showModal={error} authMessage={error} clearError={clearError}/>
+            <Modal showModal={error} message={error} clearError={clearError}/>
                 {basket?.length === 0 ? defaultMessage : (  
                     <div className='pricing__resume'>
                     <SubTotal className='pricing__subtotal' payment={handleClick}/>

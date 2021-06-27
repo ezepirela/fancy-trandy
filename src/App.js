@@ -12,6 +12,7 @@ import Orders                         from './pages/Orders';
 import Success                        from './pages/Success'; 
 import Canceled                       from './pages/Canceled';
 import SignUpPage                     from './pages/SignUpPage';
+import Product                        from './pages/Product';
 import Header                         from './components/Header';
 import { UserContext, StateProvider } from './context/ContextProvider';
 import { useAuth } from './hooks/auth-hook';
@@ -47,6 +48,10 @@ function App() {
             <Route path='/canceled'>
               <Header/>
               <Canceled />
+            </Route>
+            <Route path='/products/:productId'>
+              <Header/>
+              <Product />
             </Route>
             <Route path='/pricing2'>
               <Header/>

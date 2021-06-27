@@ -21,13 +21,13 @@ const Header = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="header__navlink" >
-                    <Nav.Link><Link className='header__navlinks' to='/home'><Button style={{color: '#0A1D37', borderColor: '#FFBD9B'}} variant="outline-light" >Home</Button></Link></Nav.Link>
-                    <Nav.Link><Link className='header__navlinks' to='/products'><Button style={{color: '#0A1D37', borderColor: '#FFBD9B'}} variant="outline-light" >Products</Button></Link></Nav.Link>
-                    {user.token? (<Nav.Link><Link className='header__navlinks' to='/home'><Button style={{color: '#0A1D37', borderColor: '#FFBD9B'}} variant="outline-light" onClick={handleLogout}>Logout</Button></Link></Nav.Link>)
+                    <Nav.Link as={Link} ><Link className='header__navlinks' to='/home'><Button style={{color: '#0A1D37', borderColor: '#FFBD9B'}} variant="outline-light" >Home</Button></Link></Nav.Link>
+                    <Nav.Link as={Link} ><Link className='header__navlinks' to='/products'><Button style={{color: '#0A1D37', borderColor: '#FFBD9B'}} variant="outline-light" >Products</Button></Link></Nav.Link>
+                    {user.token? (<Nav.Link as={Link} ><Link className='header__navlinks' to='/home'><Button style={{color: '#0A1D37', borderColor: '#FFBD9B'}} variant="outline-light" onClick={handleLogout}>Logout</Button></Link></Nav.Link>)
                      : 
-                    (<Nav.Link><Link className='header__navlinks' to='/signup'><Button style={{color: '#0A1D37', borderColor: '#FFBD9B'}} variant="outline-light" >SignUp</Button></Link></Nav.Link>)}
+                    (<Nav.Link as={Link} ><Link className='header__navlinks' to='/signup'><Button style={{color: '#0A1D37', borderColor: '#FFBD9B'}} variant="outline-light" >SignUp</Button></Link></Nav.Link>)}
                     
-                    {user.token && <Nav.Link><Link className='header__navlinks' to={`/orders/${user.userId}`}><Button style={{color: '#0A1D37', borderColor: '#FFBD9B'}} variant="outline-light" >Orders</Button></Link></Nav.Link>}
+                    {user.token && <Nav.Link as={Link} ><Link className='header__navlinks' to={`/orders/${user.userId}`}><Button style={{color: '#0A1D37', borderColor: '#FFBD9B'}} variant="outline-light" >Orders</Button></Link></Nav.Link>}
                     <Link to='/pricing2'> 
                     <Button className='header__badge' variant="light">
                         < ShoppingBasketIcon /><Badge variant="light">{basket?.length}</Badge>
