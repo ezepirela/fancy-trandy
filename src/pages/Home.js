@@ -17,14 +17,15 @@ const Home = () => {
         const fetchProducts = async () => {
             try{
                 response = await sendRequest(`${process.env.REACT_APP_BACKEND_URL}products`);
+                setProducts(response.products);
             }catch(e){
                 console.log(e);
             }
-            setProducts(response.products);
+            
         };
         fetchProducts();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [sendRequest])
     return (
         <React.Fragment>
         {!isLoading && error && <Modal showModal={error} clearError={clearError} message='Un error ha ocurrido. Carge la página nuevamente'/>}

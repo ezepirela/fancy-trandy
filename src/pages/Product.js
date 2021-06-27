@@ -36,7 +36,7 @@ function Product() {
 		}
 		fetchProduct();
 			// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [])
+	}, [sendRequest])
 	return (
 		<React.Fragment>
 			{!isLoading && error && <Modal showModal={error} message="Un error ha ocurrido. Carge la página nuevamente" clearError={clearError}/>}
