@@ -41,8 +41,8 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.use(new googleStrategy({
   clientID: process.env.GOOGLE_CLIENTID,
   clientSecret: process.env.GOOGLE_CLIENTSECRET,
-  callbackURL: 'http://127.0.0.1:4000/login/auth/google/redirect'
-  // callbackURL: 'https://fancytrandy.herokuapp.com/login/auth/google/redirect'
+  // callbackURL: 'http://127.0.0.1:4000/login/auth/google/redirect'
+  callbackURL: 'https://fancytrandy.herokuapp.com/login/auth/google/redirect'
 }, (accessToken, refreshToken, profile, done) => {
   User.findOne({googleID: profile.id}).then(currentUser => {
     if(currentUser){
@@ -62,7 +62,7 @@ passport.use(new googleStrategy({
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.ai1xb.mongodb.net/${process.env.DB_NAME_PRE}?retryWrites=true&w=majority`, {
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.ai1xb.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })

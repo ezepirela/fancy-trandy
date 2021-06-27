@@ -45,13 +45,13 @@ function Product() {
 					<img alt='product' className='individualProduct__image' src={product.image} />
 				</section>} 
 				{!isLoading && product && <section className='individualProduct__info' >
-					<h4>{product.title}</h4>
-					<p>{product.description}</p>
-					<p>Price: <strong>{`${product.price.toLocaleString('es-AR', {style: 'currency',currency: 'ARS', minimumFractionDigits: 0})}`}</strong></p>
-					<Button variant='outline-danger' className='product__button' onClick={addButtonHandler}>Lo Quiero!</Button>
-					<fieldset style={{width: '500px'}}className="starability-heart">
+					<h4 className='individualProduct__info_title'>{product.title}</h4>
+					<p className='individualProduct__info_description'>{product.description}</p>
+					<p className='individualProduct__info_description'>Price: <strong>{`${product.price.toLocaleString('es-AR', {style: 'currency',currency: 'ARS', minimumFractionDigits: 0})}`}</strong></p>
+					<Button variant='outline-danger' className='individualProduct__info_button' onClick={addButtonHandler}>Lo Quiero!</Button>
+					<fieldset style={{width: '500px'}} id='individualProduct__info_review' className="starability-heart">
 					  <legend className='product__legend'>Califica este producto:</legend>
-					  <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+					  <input type="radio" id="no-rate" className="input-no-rate" name="rating" value="0" defaultChecked aria-label="No rating." />
 					  <input type="radio" id="first-rate1" name="rating" value="1" />
 					  <label htmlFor="first-rate1" title="Terrible">1 star</label>
 					  <input type="radio" id="first-rate2" name="rating" value="2" />
