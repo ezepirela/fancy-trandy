@@ -2,6 +2,11 @@ const 	mongoose 		=	require('mongoose'),
 		productModel	=	require('../Models/Products'),
 		HttpError		=	require('../Models/HttpErrors');
 const productsController = {
+	createProducts: async (req, res) => {
+		const newProduct = await new productModel(product);
+		await newProduct.save();
+		res.send('product created');
+	},
 	getProductById: async (req, res, next) => {
 		try{
 			const product = await productModel.findById({_id: req.params.id});
