@@ -69,6 +69,9 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD
 .then(() => console.log('DB  running'))
 .catch(error => console.log(error.message));
 app.use(express.static(path.join('public')));
+app.get('/test', (req, res) => {
+  res.send('server test')
+})
 app.use('/', paymentsRoutes);
 app.use('/login', loginRoutes);
 app.use('/products', productRoutes);
