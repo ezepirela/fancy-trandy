@@ -17,7 +17,7 @@ const Home = () => {
         let response;
         const fetchProducts = async () => {
             try{
-                response = await sendRequest('https://fancy-backend1.herokuapp.com');
+                response = await sendRequest('https://fancy-backend1.herokuapp.com/products');
                 setProducts(response.products);
             }catch(e){
                 console.log(e);
