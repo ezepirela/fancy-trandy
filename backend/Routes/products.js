@@ -4,6 +4,5 @@ const 	express 			= require('express'),
 
 Router.get('/', productsController.getAllProducts);
 Router.get('/:id', productsController.getProductById);
-Router.post('/', productsController.createProducts);
 
 module.exports = Router;
