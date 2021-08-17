@@ -49,8 +49,8 @@ const controller = {
 			payment_method_types: ['card'],
 			mode: 'payment',
 			line_items: req.body.arrayProp,
-			success_url: `${process.env.DB_FRONT_URL}/success`,
-    		cancel_url: `${process.env.DB_FRONT_URL}/canceled`,
+			success_url: `${process.env.DB_FRONT_PRE}/success`,
+    		cancel_url: `${process.env.DB_FRONT_PRE}/canceled`,
 		});
 		res.status(201).json({sessionId: session.id});
 	}

@@ -69,7 +69,6 @@ const controller = {
         });
     },
     loginGoogle: async (req, res, next) => {
-        console.log('handled1');
         passport.authenticate('google', {scope: ['profile', 'email']})(req, res, function(){
             console.log('first');
         });

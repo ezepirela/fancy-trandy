@@ -7,7 +7,7 @@ $extra-large: 4vw;
 @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@900&display=swap');
 .stripe-textProducts {
     position: relative;
-    $random-text: 'Products:';
+    $random-text: 'Products';
     $stroke-width: $extra-large * 0.05;
      font-size: $extra-large;
      text-transform: uppercase;
