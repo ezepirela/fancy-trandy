@@ -12,7 +12,6 @@ const Home = () => {
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
     };
-      console.log(process.env.REACT_APP_BACKEND_URL);
     useEffect(() => {
         let response;
         const fetchProducts = async () => {

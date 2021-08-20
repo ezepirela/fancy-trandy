@@ -3,7 +3,7 @@ import OrderItem from './OrderItem';
 import './OrderList.css';
 function OrderList({loadedOrders}) {
 	if(loadedOrders.length === 0){
-		return <h1>The users hasnt orders</h1>
+		return <h1>The users hasn't orders</h1>
 	}
 	return (
 		<ul className='orderlist__list'>

@@ -2,13 +2,16 @@
 .pricing__products{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
 .canceled__image{
     max-height: 200px;
     max-width: 200px;
+}
+.canceled__title{
+    padding: 20px;
 }
 
 .pricing__defaultMessage{

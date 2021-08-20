@@ -7,10 +7,11 @@ $extra-large: 4vw;
 @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@900&display=swap');
 .stripe-text {
     position: relative;
-    $random-text: 'your previous orders:';
+    $random-text: 'your previous orders';
     $stroke-width: $extra-large * 0.05;
      font-size: $extra-large;
      text-transform: uppercase;
+     margin-bottom: 40px;
     font-weight: 900;
     z-index: 1;
     font-family: 'Catamaran', sans-serif;

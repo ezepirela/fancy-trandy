@@ -1,0 +1,5 @@
+* Añadir márgenes en la página de description de cada producto. Que la imagen no esté pegada al borde y al texto de descripción
+* Cambiar el componente que despliega la lista de órdenes compradas. Que sea horizontal y no vertical /////////////COMPLETADO
+* cambiar pagina de shopping basket. Distribucion de productos y mensaje default cuando no tienes productos.
+* cambiar login e inicio de sesion.
+* anadir reviews a los productos en la paagina de ordenes compradas y producto individual
